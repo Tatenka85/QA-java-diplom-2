@@ -1,0 +1,186 @@
+{
+  "uid" : "f3f3e44cc70f2ce9",
+  "name" : "testGetOrdersWithAuth",
+  "fullName" : "GetOrdersTest.testGetOrdersWithAuth",
+  "historyId" : "7d4642ea7712039c98f5cd0ddeedf83b",
+  "time" : {
+    "start" : 1742028996518,
+    "stop" : 1742029001109,
+    "duration" : 4591
+  },
+  "description" : "Получение заказов авторизованного пользователя",
+  "descriptionHtml" : "<p>Получение заказов авторизованного пользователя</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Получение заказов авторизованного пользователя",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=test1742028996518@example.com, name=Tata",
+      "time" : {
+        "start" : 1742028996518,
+        "stop" : 1742028996832,
+        "duration" : 314
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742028996518@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      }, {
+        "name" : "name",
+        "value" : "Tata"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Логин пользователя: email=test1742028996518@example.com",
+      "time" : {
+        "start" : 1742028996833,
+        "stop" : 1742028997142,
+        "duration" : 309
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742028996518@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Получение списка доступных ингредиентов",
+      "time" : {
+        "start" : 1742028997161,
+        "stop" : 1742028997446,
+        "duration" : 285
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "hasContent" : false,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Создание заказа с ингредиентами",
+      "time" : {
+        "start" : 1742028997446,
+        "stop" : 1742028999929,
+        "duration" : 2483
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDU0MGM0OWVkMjgwMDAxYjU5Y2VjOCIsImlhdCI6MTc0MjAyODk5NiwiZXhwIjoxNzQyMDMwMTk2fQ.AgfFP_VwGYxFe3eLyoK2WyeIPVU0is1fMXq-istHS34"
+      }, {
+        "name" : "ingredientIds",
+        "value" : "[61c0c5a71d1f82001bdaaa6d]"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Получение заказов пользователя",
+      "time" : {
+        "start" : 1742028999930,
+        "stop" : 1742029000446,
+        "duration" : 516
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDU0MGM0OWVkMjgwMDAxYjU5Y2VjOCIsImlhdCI6MTc0MjAyODk5NiwiZXhwIjoxNzQyMDMwMTk2fQ.AgfFP_VwGYxFe3eLyoK2WyeIPVU0is1fMXq-istHS34"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1742029000476,
+        "stop" : 1742029001108,
+        "duration" : 632
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDU0MGM0OWVkMjgwMDAxYjU5Y2VjOCIsImlhdCI6MTc0MjAyODk5NiwiZXhwIjoxNzQyMDMwMTk2fQ.AgfFP_VwGYxFe3eLyoK2WyeIPVU0is1fMXq-istHS34"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 6,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "GetOrdersTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testGetOrdersWithAuth"
+  }, {
+    "name" : "suite",
+    "value" : "GetOrdersTest"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "2216@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f3f3e44cc70f2ce9.json",
+  "parameterValues" : [ ]
+}

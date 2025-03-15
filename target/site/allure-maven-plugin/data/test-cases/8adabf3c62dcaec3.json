@@ -1,0 +1,168 @@
+{
+  "uid" : "8adabf3c62dcaec3",
+  "name" : "testCreateOrderWithoutAuth",
+  "fullName" : "CreateOrderTest.testCreateOrderWithoutAuth",
+  "historyId" : "f8a4467f9385dbfa8faca8d245e5ab4e",
+  "time" : {
+    "start" : 1742028988001,
+    "stop" : 1742028989966,
+    "duration" : 1965
+  },
+  "description" : "Создание заказа без авторизации",
+  "descriptionHtml" : "<p>Создание заказа без авторизации</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Создание заказа без авторизации",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=test1742028988001@example.com, name=Tata",
+      "time" : {
+        "start" : 1742028988001,
+        "stop" : 1742028988355,
+        "duration" : 354
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742028988001@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      }, {
+        "name" : "name",
+        "value" : "Tata"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Логин пользователя: email=test1742028988001@example.com",
+      "time" : {
+        "start" : 1742028988356,
+        "stop" : 1742028988672,
+        "duration" : 316
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742028988001@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Получение списка доступных ингредиентов",
+      "time" : {
+        "start" : 1742028988695,
+        "stop" : 1742028988992,
+        "duration" : 297
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "hasContent" : false,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Создание заказа с ингредиентами",
+      "time" : {
+        "start" : 1742028988992,
+        "stop" : 1742028989248,
+        "duration" : 256
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : ""
+      }, {
+        "name" : "ingredientIds",
+        "value" : "[61c0c5a71d1f82001bdaaa6d, 61c0c5a71d1f82001bdaaa6f]"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1742028989309,
+        "stop" : 1742028989962,
+        "duration" : 653
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDU0MGJjOWVkMjgwMDAxYjU5Y2ViYSIsImlhdCI6MTc0MjAyODk4OCwiZXhwIjoxNzQyMDMwMTg4fQ.vhipI3n3VSsSLkrw_mTDA0Y-868ZQfHyllw8QclOkuw"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 5,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "CreateOrderTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCreateOrderWithoutAuth"
+  }, {
+    "name" : "suite",
+    "value" : "CreateOrderTest"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "2216@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8adabf3c62dcaec3.json",
+  "parameterValues" : [ ]
+}

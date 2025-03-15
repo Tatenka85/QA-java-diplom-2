@@ -1,0 +1,156 @@
+{
+  "uid" : "66337140e7110288",
+  "name" : "testUpdateUserWithDuplicateEmail",
+  "fullName" : "UserUpdateTests.testUpdateUserWithDuplicateEmail",
+  "historyId" : "b540dd5482906b335d24e81346236be0",
+  "time" : {
+    "start" : 1742029003845,
+    "stop" : 1742029005384,
+    "duration" : 1539
+  },
+  "description" : "Попытка изменить email на уже существующий",
+  "descriptionHtml" : "<p>Попытка изменить email на уже существующий</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Попытка изменить email на уже существующий",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=test1742029003845@example.com, name=Tata",
+      "time" : {
+        "start" : 1742029003845,
+        "stop" : 1742029004152,
+        "duration" : 307
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742029003845@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      }, {
+        "name" : "name",
+        "value" : "Tata"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Логин пользователя: email=test1742029003845@example.com",
+      "time" : {
+        "start" : 1742029004153,
+        "stop" : 1742029004484,
+        "duration" : 331
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742029003845@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Обновление данных пользователя",
+      "time" : {
+        "start" : 1742029004503,
+        "stop" : 1742029004748,
+        "duration" : 245
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDU0MGNiOWVkMjgwMDAxYjU5Y2VkNyIsImlhdCI6MTc0MjAyOTAwNCwiZXhwIjoxNzQyMDMwMjA0fQ.xgFILhurNU2zeUqCqx0hTPh1sBpX3R_zsygcuj23EuY"
+      }, {
+        "name" : "newEmail",
+        "value" : "existinguser@example.com"
+      }, {
+        "name" : "newName",
+        "value" : "Tata"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1742029004768,
+        "stop" : 1742029005383,
+        "duration" : 615
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDU0MGNiOWVkMjgwMDAxYjU5Y2VkNyIsImlhdCI6MTc0MjAyOTAwNCwiZXhwIjoxNzQyMDMwMjA0fQ.xgFILhurNU2zeUqCqx0hTPh1sBpX3R_zsygcuj23EuY"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 4,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserUpdateTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "testUpdateUserWithDuplicateEmail"
+  }, {
+    "name" : "suite",
+    "value" : "UserUpdateTests"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "2216@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "66337140e7110288.json",
+  "parameterValues" : [ ]
+}

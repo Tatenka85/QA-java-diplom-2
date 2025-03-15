@@ -1,0 +1,156 @@
+{
+  "uid" : "d776983a3b5c4f58",
+  "name" : "testUpdateUserWithoutAuth",
+  "fullName" : "UserUpdateTests.testUpdateUserWithoutAuth",
+  "historyId" : "98e6626413ecdffa5cceaf3808ef126f",
+  "time" : {
+    "start" : 1742029005386,
+    "stop" : 1742029006886,
+    "duration" : 1500
+  },
+  "description" : "Изменение данных пользователя без авторизации",
+  "descriptionHtml" : "<p>Изменение данных пользователя без авторизации</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Изменение данных пользователя без авторизации",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=test1742029005387@example.com, name=Tata",
+      "time" : {
+        "start" : 1742029005387,
+        "stop" : 1742029005702,
+        "duration" : 315
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742029005387@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      }, {
+        "name" : "name",
+        "value" : "Tata"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Логин пользователя: email=test1742029005387@example.com",
+      "time" : {
+        "start" : 1742029005702,
+        "stop" : 1742029006007,
+        "duration" : 305
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742029005387@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Обновление данных пользователя",
+      "time" : {
+        "start" : 1742029006021,
+        "stop" : 1742029006253,
+        "duration" : 232
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : ""
+      }, {
+        "name" : "newEmail",
+        "value" : "unauthorized@example.com"
+      }, {
+        "name" : "newName",
+        "value" : "NoAuthName"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1742029006269,
+        "stop" : 1742029006886,
+        "duration" : 617
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDU0MGNkOWVkMjgwMDAxYjU5Y2VkYSIsImlhdCI6MTc0MjAyOTAwNSwiZXhwIjoxNzQyMDMwMjA1fQ.d9DSId66BYmmQgLJFh-vY6faDJSP7vEGQ3tcGgDEdn0"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 4,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserUpdateTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "testUpdateUserWithoutAuth"
+  }, {
+    "name" : "suite",
+    "value" : "UserUpdateTests"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "2216@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "d776983a3b5c4f58.json",
+  "parameterValues" : [ ]
+}

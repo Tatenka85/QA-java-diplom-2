@@ -1,0 +1,168 @@
+{
+  "uid" : "819b9dd83dea6271",
+  "name" : "testCreateOrderWithoutIngredients",
+  "fullName" : "CreateOrderTest.testCreateOrderWithoutIngredients",
+  "historyId" : "2370229945c741459789356365470558",
+  "time" : {
+    "start" : 1742028984081,
+    "stop" : 1742028986065,
+    "duration" : 1984
+  },
+  "description" : "Создание заказа без ингредиентов",
+  "descriptionHtml" : "<p>Создание заказа без ингредиентов</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Создание заказа без ингредиентов",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=test1742028984081@example.com, name=Tata",
+      "time" : {
+        "start" : 1742028984081,
+        "stop" : 1742028984415,
+        "duration" : 334
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742028984081@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      }, {
+        "name" : "name",
+        "value" : "Tata"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Логин пользователя: email=test1742028984081@example.com",
+      "time" : {
+        "start" : 1742028984416,
+        "stop" : 1742028984746,
+        "duration" : 330
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742028984081@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Получение списка доступных ингредиентов",
+      "time" : {
+        "start" : 1742028984780,
+        "stop" : 1742028985135,
+        "duration" : 355
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "hasContent" : false,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Создание заказа с ингредиентами",
+      "time" : {
+        "start" : 1742028985135,
+        "stop" : 1742028985401,
+        "duration" : 266
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDU0MGI4OWVkMjgwMDAxYjU5Y2ViNCIsImlhdCI6MTc0MjAyODk4NCwiZXhwIjoxNzQyMDMwMTg0fQ.I2qAVBE2At0fDFh5JHgjDvNdyREl3jSbkViBRWAuIXM"
+      }, {
+        "name" : "ingredientIds",
+        "value" : "[]"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1742028985430,
+        "stop" : 1742028986063,
+        "duration" : 633
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDU0MGI4OWVkMjgwMDAxYjU5Y2ViNCIsImlhdCI6MTc0MjAyODk4NCwiZXhwIjoxNzQyMDMwMTg0fQ.I2qAVBE2At0fDFh5JHgjDvNdyREl3jSbkViBRWAuIXM"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 5,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "CreateOrderTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCreateOrderWithoutIngredients"
+  }, {
+    "name" : "suite",
+    "value" : "CreateOrderTest"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "2216@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "819b9dd83dea6271.json",
+  "parameterValues" : [ ]
+}

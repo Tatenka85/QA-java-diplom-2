@@ -1,0 +1,114 @@
+{
+  "uid" : "92ca958ed1fbd1ce",
+  "name" : "testLoginUser",
+  "fullName" : "UserLoginTests.testLoginUser",
+  "historyId" : "a49d240a8bd6179ccc33f41832d88cd1",
+  "time" : {
+    "start" : 1742029001114,
+    "stop" : 1742029001782,
+    "duration" : 668
+  },
+  "description" : "Логин под существующим пользователем",
+  "descriptionHtml" : "<p>Логин под существующим пользователем</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Логин под существующим пользователем",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=test1742029001114@example.com, name=Tata",
+      "time" : {
+        "start" : 1742029001115,
+        "stop" : 1742029001421,
+        "duration" : 306
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742029001114@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      }, {
+        "name" : "name",
+        "value" : "Tata"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Логин пользователя: email=test1742029001114@example.com",
+      "time" : {
+        "start" : 1742029001421,
+        "stop" : 1742029001731,
+        "duration" : 310
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742029001114@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 2,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserLoginTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "testLoginUser"
+  }, {
+    "name" : "suite",
+    "value" : "UserLoginTests"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "2216@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "92ca958ed1fbd1ce.json",
+  "parameterValues" : [ ]
+}

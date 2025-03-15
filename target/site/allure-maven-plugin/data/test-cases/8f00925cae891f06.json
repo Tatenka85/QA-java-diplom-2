@@ -1,0 +1,117 @@
+{
+  "uid" : "8f00925cae891f06",
+  "name" : "testCreateDuplicateUser",
+  "fullName" : "CreateUserTest.testCreateDuplicateUser",
+  "historyId" : "95126aa6fd80697fe0de7c671808746",
+  "time" : {
+    "start" : 1742028989982,
+    "stop" : 1742028990618,
+    "duration" : 636
+  },
+  "description" : "Попытка создания уже зарегистрированного пользователя",
+  "descriptionHtml" : "<p>Попытка создания уже зарегистрированного пользователя</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Попытка создания уже зарегистрированного пользователя",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=test1742028989982@example.com, name=Tata",
+      "time" : {
+        "start" : 1742028989983,
+        "stop" : 1742028990292,
+        "duration" : 309
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742028989982@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      }, {
+        "name" : "name",
+        "value" : "Tata"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Создание пользователя: email=test1742028989982@example.com, name=Tata",
+      "time" : {
+        "start" : 1742028990324,
+        "stop" : 1742028990580,
+        "duration" : 256
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742028989982@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      }, {
+        "name" : "name",
+        "value" : "Tata"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 2,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "CreateUserTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCreateDuplicateUser"
+  }, {
+    "name" : "suite",
+    "value" : "CreateUserTest"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "2216@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8f00925cae891f06.json",
+  "parameterValues" : [ ]
+}

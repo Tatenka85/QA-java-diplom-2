@@ -15,8 +15,8 @@ public class OrderSteps {
                 .when()
                 .get(Constants.INGREDIENTS_ENDPOINT);
 
-        response.then().statusCode(200);
-        return response.jsonPath().getList("data._id", String.class);
+        response.then().assertThat().statusCode(200);
+        return response.then().extract().body().path("data._id");
     }
 
     @Step("Создание заказа с ингредиентами")

@@ -17,12 +17,13 @@ public class UserLoginTests {
 
         // Логин под созданным пользователем
         Response loginResponse = UserSteps.loginUser(email, password);
-        loginResponse.then().statusCode(200);
-        String accessToken = loginResponse.jsonPath().getString("accessToken");
-        String refreshToken = loginResponse.jsonPath().getString("refreshToken");
+        loginResponse.then().assertThat().statusCode(200);
 
-        Assert.assertNotNull(accessToken);
-        Assert.assertNotNull(refreshToken);
+        String accessToken = loginResponse.then().extract().body().path("accessToken");
+        String refreshToken = loginResponse.then().extract().body().path("refreshToken");
+
+        Assert.assertNotNull("AccessToken не должен быть null", accessToken);
+        Assert.assertNotNull("RefreshToken не должен быть null", refreshToken);
     }
 
     @Test
@@ -30,16 +31,18 @@ public class UserLoginTests {
     public void testLoginInvalidUser() {
         // Логин с неправильным паролем
         Response loginResponse = UserSteps.loginUser(email, "wrongPassword");
-        loginResponse.then().statusCode(401);
+        loginResponse.then().assertThat().statusCode(401);
+
+        String message = loginResponse.then().extract().body().path("message");
         Assert.assertEquals("Неверное сообщение об ошибке при неверном пароле",
-                "email or password are incorrect",
-                loginResponse.jsonPath().getString("message"));
+                "email or password are incorrect", message);
 
         // Логин с неправильным email
         loginResponse = UserSteps.loginUser("wrongEmail@example.com", password);
-        loginResponse.then().statusCode(401);
+        loginResponse.then().assertThat().statusCode(401);
+
+        message = loginResponse.then().extract().body().path("message");
         Assert.assertEquals("Неверное сообщение об ошибке при неверном email",
-                "email or password are incorrect",
-                loginResponse.jsonPath().getString("message"));
+                "email or password are incorrect", message);
     }
 }

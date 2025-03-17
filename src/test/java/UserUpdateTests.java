@@ -15,11 +15,13 @@ public class UserUpdateTests {
     public void setUp() {
         email = "test" + System.currentTimeMillis() + "@example.com";
         String password = "TestPassword123!";
+
         Response registerResponse = UserSteps.registerUser(email, password, name);
-        registerResponse.then().statusCode(200);
+        registerResponse.then().assertThat().statusCode(200);
 
         Response loginResponse = UserSteps.loginUser(email, password);
-        accessToken = loginResponse.jsonPath().getString("accessToken");
+        loginResponse.then().assertThat().statusCode(200);
+        accessToken = loginResponse.then().extract().body().path("accessToken");
     }
 
     @Test
@@ -28,10 +30,13 @@ public class UserUpdateTests {
         String newEmail = "new" + System.currentTimeMillis() + "@example.com";
 
         Response updateResponse = UserSteps.updateUser(accessToken, newEmail, name);
-        updateResponse.then().statusCode(200);
+        updateResponse.then().assertThat().statusCode(200);
 
-        Assert.assertEquals("Email не обновился", newEmail, updateResponse.jsonPath().getString("user.email"));
-        Assert.assertEquals("Имя изменилось, хотя не должно", name, updateResponse.jsonPath().getString("user.name"));
+        String updatedEmail = updateResponse.then().extract().body().path("user.email");
+        String updatedName = updateResponse.then().extract().body().path("user.name");
+
+        Assert.assertEquals("Email не обновился", newEmail, updatedEmail);
+        Assert.assertEquals("Имя изменилось, хотя не должно", name, updatedName);
     }
 
     @Test
@@ -40,21 +45,23 @@ public class UserUpdateTests {
         String newName = "NewName";
 
         Response updateResponse = UserSteps.updateUser(accessToken, email, newName);
-        updateResponse.then().statusCode(200);
+        updateResponse.then().assertThat().statusCode(200);
 
-        Assert.assertEquals("Имя не обновилось", newName, updateResponse.jsonPath().getString("user.name"));
-        Assert.assertEquals("Email изменился, хотя не должен", email, updateResponse.jsonPath().getString("user.email"));
+        String updatedName = updateResponse.then().extract().body().path("user.name");
+        String updatedEmail = updateResponse.then().extract().body().path("user.email");
+
+        Assert.assertEquals("Имя не обновилось", newName, updatedName);
+        Assert.assertEquals("Email изменился, хотя не должен", email, updatedEmail);
     }
 
     @Test
     @Description("Изменение данных пользователя без авторизации")
     public void testUpdateUserWithoutAuth() {
         Response updateResponse = UserSteps.updateUser("", "unauthorized@example.com", "NoAuthName");
-        updateResponse.then().statusCode(401);
+        updateResponse.then().assertThat().statusCode(401);
 
-        Assert.assertEquals("Некорректное сообщение об ошибке",
-                "You should be authorised",
-                updateResponse.jsonPath().getString("message"));
+        String message = updateResponse.then().extract().body().path("message");
+        Assert.assertEquals("Некорректное сообщение об ошибке", "You should be authorised", message);
     }
 
     @Test
@@ -63,18 +70,18 @@ public class UserUpdateTests {
         String duplicateEmail = "existinguser@example.com";
 
         Response updateResponse = UserSteps.updateUser(accessToken, duplicateEmail, name);
-        updateResponse.then().statusCode(403);
+        updateResponse.then().assertThat().statusCode(403);
 
-        Assert.assertEquals("Некорректное сообщение об ошибке",
-                "User with such email already exists",
-                updateResponse.jsonPath().getString("message"));
+        String message = updateResponse.then().extract().body().path("message");
+        Assert.assertEquals("Некорректное сообщение об ошибке", "User with such email already exists", message);
     }
 
     @After
     @Description("Удаление пользователя после тестов")
     public void tearDown() {
         if (accessToken != null && !accessToken.isEmpty()) {
-            UserSteps.deleteUser(accessToken).then().statusCode(202);
+            Response deleteResponse = UserSteps.deleteUser(accessToken);
+            deleteResponse.then().assertThat().statusCode(202);
         }
     }
 }

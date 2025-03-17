@@ -16,8 +16,10 @@ public class CreateUserTest {
     @Description("Создание пользователя без email")
     public void testCreateUserWithoutEmail() {
         Response response = UserSteps.registerUser("", password, name);
-        response.then().statusCode(403);
-        Assert.assertEquals(response.jsonPath().getString("message"), "Email, password and name are required fields");
+        response.then().assertThat().statusCode(403);
+
+        String message = response.then().extract().body().path("message");
+        Assert.assertEquals("Email, password and name are required fields", message);
     }
 
     @Test
@@ -26,14 +28,16 @@ public class CreateUserTest {
         Response response = UserSteps.registerUser(email, password, name);
         System.out.println("🔹 Ответ сервера на создание: " + response.asString());
 
-        response.then().statusCode(200);
-        Assert.assertTrue(response.jsonPath().getBoolean("success"));
+        response.then().assertThat().statusCode(200);
+        boolean success = response.then().extract().body().path("success");
+        Assert.assertTrue("Ответ должен содержать успех", success);
 
         Response loginResponse = UserSteps.loginUser(email, password);
         System.out.println("🔹 Ответ сервера на логин: " + loginResponse.asString());
 
-        accessToken = loginResponse.jsonPath().getString("accessToken");
-        refreshToken = loginResponse.jsonPath().getString("refreshToken");
+        loginResponse.then().assertThat().statusCode(200);
+        accessToken = loginResponse.then().extract().body().path("accessToken");
+        refreshToken = loginResponse.then().extract().body().path("refreshToken");
 
         System.out.println("✅ Логин успешен, accessToken: " + accessToken);
     }
@@ -45,15 +49,17 @@ public class CreateUserTest {
         Response response = UserSteps.registerUser(email, password, name);
         System.out.println("🔹 Ответ сервера на создание уникального пользователя: " + response.asString());
 
-        response.then().statusCode(200);
-        Assert.assertTrue(response.jsonPath().getBoolean("success"));
+        response.then().assertThat().statusCode(200);
+        boolean success = response.then().extract().body().path("success");
+        Assert.assertTrue("Ответ должен содержать успех", success);
 
         // Пытаемся создать пользователя с тем же email
         Response duplicateResponse = UserSteps.registerUser(email, password, name);
         System.out.println("🔹 Ответ сервера на попытку создать пользователя с дублирующим email: " + duplicateResponse.asString());
 
-        duplicateResponse.then().statusCode(403); // Ожидаем ошибку 403, т.к. пользователь уже существует
-        Assert.assertEquals(duplicateResponse.jsonPath().getString("message"), "User already exists");
+        duplicateResponse.then().assertThat().statusCode(403); // Ожидаем ошибку 403, т.к. пользователь уже существует
+        String message = duplicateResponse.then().extract().body().path("message");
+        Assert.assertEquals("User already exists", message);
     }
 
     @After
@@ -64,7 +70,7 @@ public class CreateUserTest {
         if (accessToken != null && !accessToken.isEmpty()) {
             Response deleteResponse = UserSteps.deleteUser(accessToken);
             System.out.println("🔹 Ответ сервера на удаление: " + deleteResponse.asString());
-            deleteResponse.then().statusCode(202);
+            deleteResponse.then().assertThat().statusCode(202);
 
             // После удаления разлогиниваться НЕ нужно
             refreshToken = null;
@@ -75,7 +81,7 @@ public class CreateUserTest {
         if (refreshToken != null && !refreshToken.isEmpty()) {
             Response logoutResponse = UserSteps.logoutUser(refreshToken);
             System.out.println("🔹 Ответ сервера на разлогин: " + logoutResponse.asString());
-            logoutResponse.then().statusCode(200);
+            logoutResponse.then().assertThat().statusCode(200);
         } else {
             System.out.println("⚠ Ошибка: refreshToken отсутствует или уже невалиден, разлогин невозможен!");
         }

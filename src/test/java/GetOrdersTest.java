@@ -19,11 +19,12 @@ public class GetOrdersTest {
         String name = "Tata";
 
         Response registerResponse = UserSteps.registerUser(email, password, name);
-        registerResponse.then().statusCode(200);
+        registerResponse.then().assertThat().statusCode(200);
 
         // Авторизация пользователя
         Response loginResponse = UserSteps.loginUser(email, password);
-        accessToken = loginResponse.jsonPath().getString("accessToken");
+        loginResponse.then().assertThat().statusCode(200);
+        accessToken = loginResponse.then().extract().body().path("accessToken");
 
         // Получение списка доступных ингредиентов
         List<String> availableIngredients = OrderSteps.getIngredients();
@@ -37,28 +38,31 @@ public class GetOrdersTest {
     @Description("Получение заказов авторизованного пользователя")
     public void testGetOrdersWithAuth() {
         Response response = OrderSteps.getUserOrders(accessToken);
-        response.then().statusCode(200);
+        response.then().assertThat().statusCode(200);
 
-        Assert.assertTrue("Ответ должен содержать успех", response.jsonPath().getBoolean("success"));
-        Assert.assertFalse("Список заказов не должен быть пустым", response.jsonPath().getList("orders").isEmpty());
+        boolean success = response.then().extract().body().path("success");
+        List<?> orders = response.then().extract().body().path("orders");
+
+        Assert.assertTrue("Ответ должен содержать успех", success);
+        Assert.assertFalse("Список заказов не должен быть пустым", orders.isEmpty());
     }
 
     @Test
     @Description("Попытка получить заказы без авторизации")
     public void testGetOrdersWithoutAuth() {
         Response response = OrderSteps.getUserOrders("");
-        response.then().statusCode(401);
+        response.then().assertThat().statusCode(401);
 
-        Assert.assertEquals("Сообщение об ошибке должно быть корректным",
-                "You should be authorised",
-                response.jsonPath().getString("message"));
+        String message = response.then().extract().body().path("message");
+        Assert.assertEquals("Сообщение об ошибке должно быть корректным", "You should be authorised", message);
     }
 
     @After
     @Description("Удаление пользователя после тестов")
     public void tearDown() {
         if (accessToken != null && !accessToken.isEmpty()) {
-            UserSteps.deleteUser(accessToken).then().statusCode(202);
+            Response deleteResponse = UserSteps.deleteUser(accessToken);
+            deleteResponse.then().assertThat().statusCode(202);
         }
     }
 }

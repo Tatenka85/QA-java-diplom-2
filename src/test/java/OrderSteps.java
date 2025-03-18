@@ -15,8 +15,8 @@ public class OrderSteps {
                 .when()
                 .get(Constants.INGREDIENTS_ENDPOINT);
 
-        response.then().assertThat().statusCode(200);
-        return response.then().extract().body().path("data._id");
+        response.then().statusCode(200);
+        return response.jsonPath().getList("data._id", String.class);
     }
 
     @Step("Создание заказа с ингредиентами")
@@ -37,7 +37,7 @@ public class OrderSteps {
                 .get(Constants.ORDERS_ENDPOINT);
     }
 
-    private static String formatIngredients(List<String> ingredientIds) {
+    static String formatIngredients(List<String> ingredientIds) {
         if (ingredientIds == null || ingredientIds.isEmpty()) {
             return "[]";
         }

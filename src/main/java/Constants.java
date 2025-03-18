@@ -12,7 +12,5 @@ public class Constants {
     public static final String AUTH_REGISTER_ENDPOINT = BASE_URL + "/auth/register";
     public static final String AUTH_LOGIN_ENDPOINT = BASE_URL + "/auth/login";
     public static final String AUTH_LOGOUT_ENDPOINT = BASE_URL + "/auth/logout";
-    public static final String AUTH_TOKEN_ENDPOINT = BASE_URL + "/auth/token";
     public static final String AUTH_USER_ENDPOINT = BASE_URL + "/auth/user";
-
 }

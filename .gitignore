@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 
 *.log
+.allure/
 
 ### IntelliJ IDEA ###
 .idea/

@@ -33,14 +33,6 @@ public class UserSteps {
                 .patch(Constants.AUTH_USER_ENDPOINT);
     }
 
-    @Step("Удаление пользователя")
-    public static Response deleteUser(String accessToken) {
-        return given()
-                .header("Authorization", accessToken)
-                .when()
-                .delete(Constants.AUTH_USER_ENDPOINT);
-    }
-
     @Step("Разлогин пользователя")
     public static Response logoutUser(String refreshToken) {
         return given()
@@ -48,5 +40,13 @@ public class UserSteps {
                 .body("{\"token\": \"" + refreshToken + "\"}")  // Тело запроса должно содержать token
                 .when()
                 .post(Constants.AUTH_LOGOUT_ENDPOINT);
+    }
+
+    @Step("Удаление пользователя")
+    public static Response deleteUser(String accessToken) {
+        return given()
+                .header("Authorization", accessToken)
+                .when()
+                .delete(Constants.AUTH_USER_ENDPOINT);
     }
 }

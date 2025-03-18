@@ -1,0 +1,174 @@
+{
+  "uid" : "1ec3840a9aeb7c0a",
+  "name" : "testUpdateUserWithAuth",
+  "fullName" : "UserUpdateTests.testUpdateUserWithAuth",
+  "historyId" : "a561d16e01efd826984403073090e76f",
+  "time" : {
+    "start" : 1742261606222,
+    "stop" : 1742261608363,
+    "duration" : 2141
+  },
+  "description" : "Изменение данных пользователя с авторизацией",
+  "descriptionHtml" : "<p>Изменение данных пользователя с авторизацией</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Изменение данных пользователя с авторизацией",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=test1742261606222@example.com, name=Tata",
+      "time" : {
+        "start" : 1742261606222,
+        "stop" : 1742261606513,
+        "duration" : 291
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742261606222@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      }, {
+        "name" : "name",
+        "value" : "Tata"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Логин пользователя: email=test1742261606222@example.com",
+      "time" : {
+        "start" : 1742261606514,
+        "stop" : 1742261606811,
+        "duration" : 297
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "test1742261606222@example.com"
+      }, {
+        "name" : "password",
+        "value" : "TestPassword123!"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Обновление данных пользователя",
+      "time" : {
+        "start" : 1742261606837,
+        "stop" : 1742261607073,
+        "duration" : 236
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDhjZDY2OWVkMjgwMDAxYjVhNWQyNyIsImlhdCI6MTc0MjI2MTYwNywiZXhwIjoxNzQyMjYyODA3fQ.pCXDHNjsrQDHBlfYXjbTB6L6AgObhblbg7ySZbvBXBw"
+      }, {
+        "name" : "newEmail",
+        "value" : "new1742261606836@example.com"
+      }, {
+        "name" : "newName",
+        "value" : "NewName"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Разлогин пользователя",
+      "time" : {
+        "start" : 1742261607099,
+        "stop" : 1742261607739,
+        "duration" : 640
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "refreshToken",
+        "value" : "3fcf85e5eea82fe7fe759baec1c63874f5325a5191f84febc482d017359b0a274d2080bc4d06a4f4"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1742261607740,
+        "stop" : 1742261608362,
+        "duration" : 622
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDhjZDY2OWVkMjgwMDAxYjVhNWQyNyIsImlhdCI6MTc0MjI2MTYwNywiZXhwIjoxNzQyMjYyODA3fQ.pCXDHNjsrQDHBlfYXjbTB6L6AgObhblbg7ySZbvBXBw"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 5
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserUpdateTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "testUpdateUserWithAuth"
+  }, {
+    "name" : "suite",
+    "value" : "UserUpdateTests"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "20196@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1ec3840a9aeb7c0a.json",
+  "parameterValues" : [ ]
+}

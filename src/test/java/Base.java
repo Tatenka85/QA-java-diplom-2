@@ -1,21 +1,30 @@
+import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 
 public class Base {
     protected static String email;
-    protected static String password = "TestPassword123!";
-    protected static String name = "Tata";
+    protected static String password;
+    protected static String name;
 
     protected static String accessToken;
     protected static String refreshToken;
 
+    private static final Faker faker = new Faker();
+
     @Before
     public void setup() {
-        email = "test" + System.currentTimeMillis() + "@example.com";
+        // Генерация случайных данных
+        email = faker.internet().emailAddress();
+        password = faker.internet().password(8, 16, true, true, true);
+        name = faker.name().firstName();
+
+        // Регистрация пользователя
         Response registerResponse = UserSteps.registerUser(email, password, name);
         registerResponse.then().statusCode(200);
 
+        // Логин пользователя
         Response loginResponse = UserSteps.loginUser(email, password);
         accessToken = loginResponse.jsonPath().getString("accessToken");
         refreshToken = loginResponse.jsonPath().getString("refreshToken");
@@ -23,7 +32,6 @@ public class Base {
 
     @After
     public void cleanup() {
-
         System.out.println("🔹 Перед разлогином refreshToken: " + refreshToken);
         if (refreshToken != null && !refreshToken.isEmpty()) {
             Response logoutResponse = UserSteps.logoutUser(refreshToken);
@@ -32,6 +40,7 @@ public class Base {
         } else {
             System.out.println("⚠ Ошибка: refreshToken отсутствует или уже невалиден, разлогин невозможен!");
         }
+
         System.out.println("🔹 Перед удалением пользователя accessToken: " + accessToken);
         if (accessToken != null && !accessToken.isEmpty()) {
             Response deleteResponse = UserSteps.deleteUser(accessToken);

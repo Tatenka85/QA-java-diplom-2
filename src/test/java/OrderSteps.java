@@ -1,12 +1,16 @@
+import com.google.gson.Gson;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import java.util.List;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
 public class OrderSteps {
+
+    private static final Gson gson = new Gson();
 
     @Step("Получение списка доступных ингредиентов")
     public static List<String> getIngredients() {
@@ -21,10 +25,13 @@ public class OrderSteps {
 
     @Step("Создание заказа с ингредиентами")
     public static Response createOrder(String accessToken, List<String> ingredientIds) {
+        Map<String, Object> requestBody = Map.of("ingredients", ingredientIds);
+        String jsonBody = gson.toJson(requestBody);
+
         return given()
                 .contentType(ContentType.JSON)
                 .header("Authorization", accessToken)
-                .body("{\"ingredients\": " + formatIngredients(ingredientIds) + "}")
+                .body(jsonBody)
                 .when()
                 .post(Constants.ORDERS_ENDPOINT);
     }
@@ -35,17 +42,5 @@ public class OrderSteps {
                 .header("Authorization", accessToken)
                 .when()
                 .get(Constants.ORDERS_ENDPOINT);
-    }
-
-    static String formatIngredients(List<String> ingredientIds) {
-        if (ingredientIds == null || ingredientIds.isEmpty()) {
-            return "[]";
-        }
-        StringBuilder formatted = new StringBuilder("[");
-        for (String id : ingredientIds) {
-            formatted.append("\"").append(id).append("\",");
-        }
-        formatted.deleteCharAt(formatted.length() - 1).append("]");
-        return formatted.toString();
     }
 }

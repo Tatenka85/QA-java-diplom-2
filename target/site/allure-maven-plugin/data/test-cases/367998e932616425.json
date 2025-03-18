@@ -1,0 +1,216 @@
+{
+  "uid" : "367998e932616425",
+  "name" : "testLoginWithInvalidPassword",
+  "fullName" : "UserLoginTests.testLoginWithInvalidPassword",
+  "historyId" : "3ce316a80e54d6be8db32b13f48c25b2",
+  "time" : {
+    "start" : 1742277679975,
+    "stop" : 1742277683018,
+    "duration" : 3043
+  },
+  "description" : "Логин с неверным паролем",
+  "descriptionHtml" : "<p>Логин с неверным паролем</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Логин с неверным паролем",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=paris.hamill@hotmail.com, name=Allan",
+      "time" : {
+        "start" : 1742277679976,
+        "stop" : 1742277680354,
+        "duration" : 378
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "paris.hamill@hotmail.com"
+      }, {
+        "name" : "password",
+        "value" : "JD5812c8He6Mvb"
+      }, {
+        "name" : "name",
+        "value" : "Allan"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Логин пользователя: email=paris.hamill@hotmail.com",
+      "time" : {
+        "start" : 1742277680355,
+        "stop" : 1742277680686,
+        "duration" : 331
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "paris.hamill@hotmail.com"
+      }, {
+        "name" : "password",
+        "value" : "JD5812c8He6Mvb"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Создание пользователя: email=tonisha.stiedemann@yahoo.com, name=Ann",
+      "time" : {
+        "start" : 1742277680726,
+        "stop" : 1742277681030,
+        "duration" : 304
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "tonisha.stiedemann@yahoo.com"
+      }, {
+        "name" : "password",
+        "value" : "a6g&@%cv"
+      }, {
+        "name" : "name",
+        "value" : "Ann"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Логин пользователя: email=tonisha.stiedemann@yahoo.com",
+      "time" : {
+        "start" : 1742277681030,
+        "stop" : 1742277681342,
+        "duration" : 312
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "tonisha.stiedemann@yahoo.com"
+      }, {
+        "name" : "password",
+        "value" : "a6g&@%cv"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Логин пользователя: email=tonisha.stiedemann@yahoo.com",
+      "time" : {
+        "start" : 1742277681369,
+        "stop" : 1742277681679,
+        "duration" : 310
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "tonisha.stiedemann@yahoo.com"
+      }, {
+        "name" : "password",
+        "value" : "wrongPassword"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Разлогин пользователя",
+      "time" : {
+        "start" : 1742277681696,
+        "stop" : 1742277682337,
+        "duration" : 641
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "refreshToken",
+        "value" : "aa8da38b4093a9b214dda6fef058ee77803431a12ee18c6da43e03a39b402fe73894efa4c4d32d10"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1742277682338,
+        "stop" : 1742277683016,
+        "duration" : 678
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDkwYzMxOWVkMjgwMDAxYjVhNjBhZCIsImlhdCI6MTc0MjI3NzY4MSwiZXhwIjoxNzQyMjc4ODgxfQ.xfOpYe4QMULjsptNjM2w83nazGR614ciTwiwz6YeVZ8"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 7,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserLoginTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "testLoginWithInvalidPassword"
+  }, {
+    "name" : "suite",
+    "value" : "UserLoginTests"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "22244@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "367998e932616425.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,219 @@
+{
+  "uid" : "a73d7cfc1b2e8813",
+  "name" : "testCreateUserWithoutPassword",
+  "fullName" : "UserCreationTests.testCreateUserWithoutPassword",
+  "historyId" : "fadcee36c1f466cbe65c449d5279bdee",
+  "time" : {
+    "start" : 1742277670668,
+    "stop" : 1742277673741,
+    "duration" : 3073
+  },
+  "description" : "Создание пользователя без пароля",
+  "descriptionHtml" : "<p>Создание пользователя без пароля</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Создание пользователя без пароля",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=asa.schimmel@gmail.com, name=Juanita",
+      "time" : {
+        "start" : 1742277670669,
+        "stop" : 1742277671002,
+        "duration" : 333
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "asa.schimmel@gmail.com"
+      }, {
+        "name" : "password",
+        "value" : "^4^$9*gv"
+      }, {
+        "name" : "name",
+        "value" : "Juanita"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Логин пользователя: email=asa.schimmel@gmail.com",
+      "time" : {
+        "start" : 1742277671002,
+        "stop" : 1742277671343,
+        "duration" : 341
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "asa.schimmel@gmail.com"
+      }, {
+        "name" : "password",
+        "value" : "^4^$9*gv"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Создание пользователя: email=nicky.champlin@hotmail.com, name=Emmett",
+      "time" : {
+        "start" : 1742277671379,
+        "stop" : 1742277671697,
+        "duration" : 318
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "nicky.champlin@hotmail.com"
+      }, {
+        "name" : "password",
+        "value" : "##Z644q8ZJblQ"
+      }, {
+        "name" : "name",
+        "value" : "Emmett"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Логин пользователя: email=nicky.champlin@hotmail.com",
+      "time" : {
+        "start" : 1742277671698,
+        "stop" : 1742277671998,
+        "duration" : 300
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "nicky.champlin@hotmail.com"
+      }, {
+        "name" : "password",
+        "value" : "##Z644q8ZJblQ"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Создание пользователя: email=nicky.champlin@hotmail.com, name=Emmett",
+      "time" : {
+        "start" : 1742277672028,
+        "stop" : 1742277672269,
+        "duration" : 241
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "nicky.champlin@hotmail.com"
+      }, {
+        "name" : "password",
+        "value" : ""
+      }, {
+        "name" : "name",
+        "value" : "Emmett"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Разлогин пользователя",
+      "time" : {
+        "start" : 1742277672285,
+        "stop" : 1742277672949,
+        "duration" : 664
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "refreshToken",
+        "value" : "7d12e6c75f86699cfbb4b713365a918c56a833c2e9c60dc91b58fc81f887738a5ff5026bc3c0693a"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1742277672950,
+        "stop" : 1742277673740,
+        "duration" : 790
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDkwYzI4OWVkMjgwMDAxYjVhNjA5ZCIsImlhdCI6MTc0MjI3NzY3MiwiZXhwIjoxNzQyMjc4ODcyfQ.3WubJqaTVrmh_lgfu3MtSq_HC2SGOXzcN3As73Seiys"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 7,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserCreationTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCreateUserWithoutPassword"
+  }, {
+    "name" : "suite",
+    "value" : "UserCreationTests"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "22244@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a73d7cfc1b2e8813.json",
+  "parameterValues" : [ ]
+}

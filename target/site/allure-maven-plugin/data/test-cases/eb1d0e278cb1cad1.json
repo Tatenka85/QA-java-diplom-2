@@ -1,0 +1,216 @@
+{
+  "uid" : "eb1d0e278cb1cad1",
+  "name" : "testUpdateUserEmail",
+  "fullName" : "UserUpdateTests.testUpdateUserEmail",
+  "historyId" : "7ad48d5f2968e26f02880bc47403b73d",
+  "time" : {
+    "start" : 1742277695106,
+    "stop" : 1742277698159,
+    "duration" : 3053
+  },
+  "description" : "Обновление email пользователя",
+  "descriptionHtml" : "<p>Обновление email пользователя</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Обновление email пользователя",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: email=annie.carroll@hotmail.com, name=Edgar",
+      "time" : {
+        "start" : 1742277695107,
+        "stop" : 1742277695437,
+        "duration" : 330
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "annie.carroll@hotmail.com"
+      }, {
+        "name" : "password",
+        "value" : "sLzVt0V*"
+      }, {
+        "name" : "name",
+        "value" : "Edgar"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Логин пользователя: email=annie.carroll@hotmail.com",
+      "time" : {
+        "start" : 1742277695438,
+        "stop" : 1742277695748,
+        "duration" : 310
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "annie.carroll@hotmail.com"
+      }, {
+        "name" : "password",
+        "value" : "sLzVt0V*"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Создание пользователя: email=robt.morar@hotmail.com, name=Yoshie",
+      "time" : {
+        "start" : 1742277695782,
+        "stop" : 1742277696129,
+        "duration" : 347
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "robt.morar@hotmail.com"
+      }, {
+        "name" : "password",
+        "value" : "!S6h5eZNW"
+      }, {
+        "name" : "name",
+        "value" : "Yoshie"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Логин пользователя: email=robt.morar@hotmail.com",
+      "time" : {
+        "start" : 1742277696129,
+        "stop" : 1742277696488,
+        "duration" : 359
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "email",
+        "value" : "robt.morar@hotmail.com"
+      }, {
+        "name" : "password",
+        "value" : "!S6h5eZNW"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Обновление email пользователя",
+      "time" : {
+        "start" : 1742277696501,
+        "stop" : 1742277696768,
+        "duration" : 267
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDkwYzQwOWVkMjgwMDAxYjVhNjBjOSIsImlhdCI6MTc0MjI3NzY5NywiZXhwIjoxNzQyMjc4ODk3fQ.Zjf50thkABmwYGPM_zHhYIa9DLc-sdLgquwDti7b93o"
+      }, {
+        "name" : "newEmail",
+        "value" : "derek.smith@gmail.com"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Разлогин пользователя",
+      "time" : {
+        "start" : 1742277696769,
+        "stop" : 1742277697430,
+        "duration" : 661
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "refreshToken",
+        "value" : "67b331c3d98ebc69182d9d1b47f60f26d47e88396171e493609f3f418f86224ddf2689a99196a8a7"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1742277697432,
+        "stop" : 1742277698158,
+        "duration" : 726
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDkwYzQwOWVkMjgwMDAxYjVhNjBjOSIsImlhdCI6MTc0MjI3NzY5NywiZXhwIjoxNzQyMjc4ODk3fQ.Zjf50thkABmwYGPM_zHhYIa9DLc-sdLgquwDti7b93o"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 7,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "UserUpdateTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "testUpdateUserEmail"
+  }, {
+    "name" : "suite",
+    "value" : "UserUpdateTests"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-2BDDJQ7H"
+  }, {
+    "name" : "thread",
+    "value" : "22244@LAPTOP-2BDDJQ7H.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "eb1d0e278cb1cad1.json",
+  "parameterValues" : [ ]
+}

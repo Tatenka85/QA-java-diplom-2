@@ -1,9 +1,41 @@
+import com.github.javafaker.Faker;
 import io.qameta.allure.Description;
 import io.restassured.response.Response;
+import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class UserLoginTests extends Base {
+
+    private final Faker faker = new Faker();
+    private String email;
+    private String password;
+
+    @Before
+    public void setUp() {
+        // Генерация уникальных данных для пользователя
+        email = faker.internet().emailAddress();
+        password = faker.internet().password(8, 16, true, true, true);
+        String name = faker.name().firstName();
+
+        // Регистрация пользователя
+        Response registerResponse = UserSteps.registerUser(email, password, name);
+        registerResponse.then().statusCode(200);
+        System.out.println("Регистрация пользователя: " + registerResponse.asString());
+
+        // Логин пользователя и получение токенов
+        Response loginResponse = UserSteps.loginUser(email, password); // Инициализация loginResponse
+        loginResponse.then().statusCode(200);
+        System.out.println("Авторизация пользователя: " + loginResponse.asString());
+
+        // Сохраняем токены
+        String accessToken = loginResponse.jsonPath().getString("accessToken");
+        String refreshToken = loginResponse.jsonPath().getString("refreshToken");
+
+        System.out.println("Access Token: " + accessToken);
+        System.out.println("Refresh Token: " + refreshToken);
+    }
 
     @Test
     @Description("Логин под существующим пользователем")

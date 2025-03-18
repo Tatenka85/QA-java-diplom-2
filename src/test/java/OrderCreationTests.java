@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import io.qameta.allure.Description;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -12,12 +14,26 @@ import java.util.List;
 public class OrderCreationTests extends Base {
 
     private List<String> ingredients;
+    private final Gson gson = new Gson(); // Инициализация Gson
 
     @Before
     public void setUp() {
         // Получаем список доступных ингредиентов перед каждым тестом
         ingredients = OrderSteps.getIngredients();
         assertFalse("Список ингредиентов не должен быть пустым", ingredients.isEmpty());
+    }
+
+    // Вспомогательный метод для форматирования списка ингредиентов в JSON
+    private String formatIngredients(List<String> ingredientIds) {
+        if (ingredientIds == null || ingredientIds.isEmpty()) {
+            return "[]";
+        }
+        StringBuilder formatted = new StringBuilder("[");
+        for (String id : ingredientIds) {
+            formatted.append("\"").append(id).append("\",");
+        }
+        formatted.deleteCharAt(formatted.length() - 1).append("]");
+        return formatted.toString();
     }
 
     @Test
@@ -29,8 +45,9 @@ public class OrderCreationTests extends Base {
 
         // Ожидаем статус 200 и успешное создание заказа
         response.then().statusCode(200);
-        assertTrue(response.jsonPath().getBoolean("success"));
-        assertNotNull(response.jsonPath().getString("order.number"));
+        JsonObject responseJson = gson.fromJson(response.asString(), JsonObject.class); // Парсинг JSON
+        assertTrue(responseJson.get("success").getAsBoolean());
+        assertNotNull(responseJson.getAsJsonObject("order").get("number").getAsString());
     }
 
     @Test
@@ -45,11 +62,10 @@ public class OrderCreationTests extends Base {
         System.out.println("Ответ сервера: " + response.asString());
 
         // Ожидаем статус 200, так как сервер позволяет создавать заказы без авторизации
-        // В документации указано, что заказы могут делать только авторизованные пользователи,
-        // но текущее поведение сервера отличается от документации.
         response.then().statusCode(200);
-        assertTrue(response.jsonPath().getBoolean("success"));
-        assertNotNull(response.jsonPath().getString("order.number"));
+        JsonObject responseJson = gson.fromJson(response.asString(), JsonObject.class); // Парсинг JSON
+        assertTrue(responseJson.get("success").getAsBoolean());
+        assertNotNull(responseJson.getAsJsonObject("order").get("number").getAsString());
     }
 
     @Test
@@ -61,7 +77,8 @@ public class OrderCreationTests extends Base {
 
         // Ожидаем статус 400 и сообщение об ошибке
         response.then().statusCode(400);
-        assertEquals("Ingredient ids must be provided", response.jsonPath().getString("message"));
+        JsonObject responseJson = gson.fromJson(response.asString(), JsonObject.class); // Парсинг JSON
+        assertEquals("Ingredient ids must be provided", responseJson.get("message").getAsString());
     }
 
     @Test
@@ -77,22 +94,19 @@ public class OrderCreationTests extends Base {
 
     @After
     public void cleanup() {
-        // Очистка после тестов (если требуется)
-        if (accessToken != null) {
-            UserSteps.deleteUser(accessToken).then().statusCode(202);
+        // Разлогин пользователя перед удалением
+        if (refreshToken != null) {
+            System.out.println("Перед разлогином refreshToken: " + refreshToken);
+            Response logoutResponse = UserSteps.logoutUser(refreshToken);
+            System.out.println("Ответ сервера на разлогин: " + logoutResponse.asString());
+            logoutResponse.then().statusCode(200);
         }
-    }
 
-    // Вспомогательный метод для форматирования списка ингредиентов в JSON
-    private String formatIngredients(List<String> ingredientIds) {
-        if (ingredientIds == null || ingredientIds.isEmpty()) {
-            return "[]";
+        // Удаление пользователя
+        if (accessToken != null) {
+            Response deleteResponse = UserSteps.deleteUser(accessToken);
+            System.out.println("Ответ сервера на удаление: " + deleteResponse.asString());
+            deleteResponse.then().statusCode(202);
         }
-        StringBuilder formatted = new StringBuilder("[");
-        for (String id : ingredientIds) {
-            formatted.append("\"").append(id).append("\",");
-        }
-        formatted.deleteCharAt(formatted.length() - 1).append("]");
-        return formatted.toString();
     }
 }

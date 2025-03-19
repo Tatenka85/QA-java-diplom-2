@@ -1,9 +1,9 @@
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.github.javafaker.Faker;
 import io.qameta.allure.Description;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,10 +14,24 @@ import java.util.List;
 public class OrderCreationTests extends Base {
 
     private List<String> ingredients;
-    private final Gson gson = new Gson(); // Инициализация Gson
+    private final Gson gson = new Gson();
+    private final Faker faker = new Faker();// Инициализация Gson
 
     @Before
     public void setUp() {
+            // Генерация уникальных данных для пользователя
+            String email = faker.internet().emailAddress();
+            String password = faker.internet().password(8, 16, true, true, true);
+            String name = faker.name().firstName();
+
+            // Регистрация пользователя
+            Response registerResponse = UserSteps.registerUser(email, password, name);
+            registerResponse.then().statusCode(200);
+
+            // Логин пользователя и получение токена
+            Response loginResponse = UserSteps.loginUser(email, password);
+            loginResponse.then().statusCode(200);
+            accessToken = loginResponse.jsonPath().getString("accessToken");
         // Получаем список доступных ингредиентов перед каждым тестом
         ingredients = OrderSteps.getIngredients();
         assertFalse("Список ингредиентов не должен быть пустым", ingredients.isEmpty());
@@ -90,23 +104,5 @@ public class OrderCreationTests extends Base {
 
         // Ожидаем статус 500, так как сервер не может обработать неверный хеш
         response.then().statusCode(500);
-    }
-
-    @After
-    public void cleanup() {
-        // Разлогин пользователя перед удалением
-        if (refreshToken != null) {
-            System.out.println("Перед разлогином refreshToken: " + refreshToken);
-            Response logoutResponse = UserSteps.logoutUser(refreshToken);
-            System.out.println("Ответ сервера на разлогин: " + logoutResponse.asString());
-            logoutResponse.then().statusCode(200);
-        }
-
-        // Удаление пользователя
-        if (accessToken != null) {
-            Response deleteResponse = UserSteps.deleteUser(accessToken);
-            System.out.println("Ответ сервера на удаление: " + deleteResponse.asString());
-            deleteResponse.then().statusCode(202);
-        }
     }
 }

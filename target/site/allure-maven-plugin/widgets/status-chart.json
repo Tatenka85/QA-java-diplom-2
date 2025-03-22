@@ -1,160 +1,180 @@
 [ {
-  "uid" : "d319014ccf90bf7d",
-  "name" : "testUpdateUserName",
-  "time" : {
-    "start" : 1742366125514,
-    "stop" : 1742366128565,
-    "duration" : 3051
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d540bbd69dcf5704",
-  "name" : "testUpdateUserEmail",
-  "time" : {
-    "start" : 1742366128568,
-    "stop" : 1742366131980,
-    "duration" : 3412
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d7185778124049e5",
-  "name" : "testGetOrdersWithoutAuth",
-  "time" : {
-    "start" : 1742366116119,
-    "stop" : 1742366119298,
-    "duration" : 3179
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "3001c5d337e6208b",
+  "uid" : "d6df443edcd10c0e",
   "name" : "testCreateDuplicateUser",
   "time" : {
-    "start" : 1742366091215,
-    "stop" : 1742366094667,
-    "duration" : 3452
+    "start" : 1742619040252,
+    "stop" : 1742619043590,
+    "duration" : 3338
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "9c5ad19a9e89a250",
-  "name" : "testCreateUserWithoutName",
-  "time" : {
-    "start" : 1742366094670,
-    "stop" : 1742366097574,
-    "duration" : 2904
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "c20cedeb83c7573a",
+  "uid" : "4ac51f502aa42495",
   "name" : "testLoginWithInvalidPassword",
   "time" : {
-    "start" : 1742366112994,
-    "stop" : 1742366116117,
-    "duration" : 3123
+    "start" : 1742619063731,
+    "stop" : 1742619067061,
+    "duration" : 3330
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "9769d34e8f4db25a",
-  "name" : "testLoginWithValidCredentials",
+  "uid" : "e31c7ecf128a568b",
+  "name" : "testUpdateUserEmailWithoutAuth",
   "time" : {
-    "start" : 1742366106792,
-    "stop" : 1742366109985,
-    "duration" : 3193
+    "start" : 1742619081564,
+    "stop" : 1742619084771,
+    "duration" : 3207
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "ccac3e7eb4fb58d1",
-  "name" : "testCreateOrderWithInvalidIngredient",
-  "time" : {
-    "start" : 1742366084325,
-    "stop" : 1742366087684,
-    "duration" : 3359
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "1e4bfe8c5a77b0fe",
-  "name" : "testGetOrdersWithAuth",
-  "time" : {
-    "start" : 1742366119303,
-    "stop" : 1742366125501,
-    "duration" : 6198
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "911aaf2975d0fdca",
-  "name" : "testLoginWithInvalidEmail",
-  "time" : {
-    "start" : 1742366109989,
-    "stop" : 1742366112991,
-    "duration" : 3002
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "9e8c1a2ea6e2f047",
-  "name" : "testCreateUserWithoutEmail",
-  "time" : {
-    "start" : 1742366097577,
-    "stop" : 1742366100587,
-    "duration" : 3010
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "b86be85e72aa118e",
-  "name" : "testCreateOrderWithAuthAndIngredients",
-  "time" : {
-    "start" : 1742366069459,
-    "stop" : 1742366080458,
-    "duration" : 10999
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "25ef9715172a63a0",
+  "uid" : "dfd297f4eb8748ba",
   "name" : "testCreateOrderWithoutIngredients",
   "time" : {
-    "start" : 1742366080560,
-    "stop" : 1742366084321,
-    "duration" : 3761
+    "start" : 1742619028964,
+    "stop" : 1742619032825,
+    "duration" : 3861
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "390934afda3fc69",
+  "uid" : "e7371b6f9b07ce55",
+  "name" : "testUpdateUserName",
+  "time" : {
+    "start" : 1742619078305,
+    "stop" : 1742619081559,
+    "duration" : 3254
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b24b7417a639e5ed",
+  "name" : "testGetOrdersWithAuth",
+  "time" : {
+    "start" : 1742619068117,
+    "stop" : 1742619075000,
+    "duration" : 6883
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5615c883f5dae2f8",
+  "name" : "testUpdateUserNameWithoutAuth",
+  "time" : {
+    "start" : 1742619075010,
+    "stop" : 1742619078303,
+    "duration" : 3293
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "96fdf541237dd914",
+  "name" : "testLoginWithValidCredentials",
+  "time" : {
+    "start" : 1742619057005,
+    "stop" : 1742619060467,
+    "duration" : 3462
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b5e99d052eeef94c",
   "name" : "testCreateUniqueUser",
   "time" : {
-    "start" : 1742366100591,
-    "stop" : 1742366103834,
-    "duration" : 3243
+    "start" : 1742619050223,
+    "stop" : 1742619053697,
+    "duration" : 3474
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "729e8ccb6f8f28a6",
+  "uid" : "e97ec055c27944a3",
+  "name" : "testCreateUserWithoutEmail",
+  "time" : {
+    "start" : 1742619046915,
+    "stop" : 1742619050219,
+    "duration" : 3304
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e7bd2a48604fa508",
+  "name" : "testCreateOrderWithAuthAndIngredients",
+  "time" : {
+    "start" : 1742619021575,
+    "stop" : 1742619028887,
+    "duration" : 7312
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "a814c619b7d8b239",
+  "name" : "testLoginWithInvalidEmail",
+  "time" : {
+    "start" : 1742619060470,
+    "stop" : 1742619063726,
+    "duration" : 3256
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "586f46da34b13b1",
+  "name" : "testCreateUserWithoutName",
+  "time" : {
+    "start" : 1742619043593,
+    "stop" : 1742619046911,
+    "duration" : 3318
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e69e8026bc74347b",
   "name" : "testCreateUserWithoutPassword",
   "time" : {
-    "start" : 1742366103838,
-    "stop" : 1742366106789,
-    "duration" : 2951
+    "start" : 1742619053699,
+    "stop" : 1742619057000,
+    "duration" : 3301
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "d4f192981348d5de",
+  "uid" : "582030e640ef6cdc",
+  "name" : "testCreateOrderWithInvalidIngredient",
+  "time" : {
+    "start" : 1742619032837,
+    "stop" : 1742619036558,
+    "duration" : 3721
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "29ca56dfb51e73a0",
   "name" : "testCreateOrderWithoutAuth",
   "time" : {
-    "start" : 1742366087688,
-    "stop" : 1742366091209,
-    "duration" : 3521
+    "start" : 1742619036567,
+    "stop" : 1742619040246,
+    "duration" : 3679
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "791eb526e999d044",
+  "name" : "testGetOrdersWithoutAuth",
+  "time" : {
+    "start" : 1742619067065,
+    "stop" : 1742619068115,
+    "duration" : 1050
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "1231b102747c7c27",
+  "name" : "testUpdateUserEmail",
+  "time" : {
+    "start" : 1742619084773,
+    "stop" : 1742619088014,
+    "duration" : 3241
   },
   "status" : "passed",
   "severity" : "normal"

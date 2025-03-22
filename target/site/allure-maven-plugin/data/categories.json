@@ -1,5 +1,43 @@
 {
   "uid" : "4b4757e66a1912dae1a509f688f20b0f",
-  "children" : [ ],
-  "name" : "categories"
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "1 expectation failed.\nExpected status code <200> but was <403>.\n",
+      "children" : [ {
+        "name" : "testCreateOrderWithAuthAndIngredients",
+        "uid" : "e7bd2a48604fa508",
+        "parentUid" : "ee2a4ff87663cce4d20d6419a954fcb6",
+        "status" : "failed",
+        "time" : {
+          "start" : 1742619021575,
+          "stop" : 1742619028887,
+          "duration" : 7312
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "ee2a4ff87663cce4d20d6419a954fcb6"
+    }, {
+      "name" : "1 expectation failed.\nExpected status code <200> but was <404>.\n",
+      "children" : [ {
+        "name" : "testGetOrdersWithoutAuth",
+        "uid" : "791eb526e999d044",
+        "parentUid" : "49e8c4ba724989b1644f4c577d398c8b",
+        "status" : "failed",
+        "time" : {
+          "start" : 1742619067065,
+          "stop" : 1742619068115,
+          "duration" : 1050
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "49e8c4ba724989b1644f4c577d398c8b"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
 }

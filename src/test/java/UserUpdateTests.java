@@ -2,11 +2,13 @@ import com.github.javafaker.Faker;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import io.qameta.allure.Description;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static io.restassured.RestAssured.given;
 import static org.junit.Assert.*;
 
 public class UserUpdateTests extends Base {
@@ -18,17 +20,19 @@ public class UserUpdateTests extends Base {
     @Before
     public void setUp() {
         // Генерация уникальных данных для пользователя
-        String email = faker.internet().emailAddress();
-        String password = faker.internet().password(8, 16, true, true, true);
-        String name = faker.name().firstName();
+        UserModel user = new UserModel(
+                faker.internet().emailAddress(),
+                faker.internet().password(8, 16, true, true, true),
+                faker.name().firstName()
+        );
 
         // Регистрация пользователя
-        Response registerResponse = UserSteps.registerUser(email, password, name);
+        Response registerResponse = UserSteps.registerUser(user);
         registerResponse.then().statusCode(200);
         System.out.println("Регистрация пользователя: " + registerResponse.asString());
 
         // Логин пользователя и получение токена
-        Response loginResponse = UserSteps.loginUser(email, password);
+        Response loginResponse = UserSteps.loginUser(user);
         loginResponse.then().statusCode(200);
         accessToken = loginResponse.jsonPath().getString("accessToken");
     }
@@ -36,14 +40,9 @@ public class UserUpdateTests extends Base {
     @Test
     @Description("Обновление email пользователя")
     public void testUpdateUserEmail() {
-        // Генерация уникального email для обновления
         String newEmail = faker.internet().emailAddress();
-
-        // Обновляем email
         Response updateResponse = UserSteps.updateUserEmail(accessToken, newEmail);
         System.out.println("Ответ сервера: " + updateResponse.asString());
-
-        // Проверяем статус и успешность обновления
         updateResponse.then().statusCode(200);
         JsonObject responseJson = gson.fromJson(updateResponse.asString(), JsonObject.class);
         assertTrue(responseJson.get("success").getAsBoolean());
@@ -53,15 +52,48 @@ public class UserUpdateTests extends Base {
     @Test
     @Description("Обновление name пользователя")
     public void testUpdateUserName() {
-        // Обновляем name
         Response updateResponse = UserSteps.updateUserName(accessToken, "New Name");
         System.out.println("Ответ сервера: " + updateResponse.asString());
-
-        // Проверяем статус и успешность обновления
         updateResponse.then().statusCode(200);
         JsonObject responseJson = gson.fromJson(updateResponse.asString(), JsonObject.class);
         assertTrue(responseJson.get("success").getAsBoolean());
         assertEquals("New Name", responseJson.getAsJsonObject("user").get("name").getAsString());
+    }
+
+    @Test
+    @Description("Обновление email пользователя без авторизации")
+    public void testUpdateUserEmailWithoutAuth() {
+        String newEmail = faker.internet().emailAddress();
+
+        // Отправляем запрос без токена авторизации
+        Response updateResponse = given()
+                .contentType(ContentType.JSON)
+                .body(gson.toJson(new UserModel(newEmail, null, null))) // Сериализация через UserModel
+                .when()
+                .patch(Constants.AUTH_USER_ENDPOINT);
+
+        System.out.println("Ответ сервера: " + updateResponse.asString());
+
+        // Проверяем статус и сообщение об ошибке
+        updateResponse.then().statusCode(401);
+        assertEquals("You should be authorised", updateResponse.jsonPath().getString("message"));
+    }
+
+    @Test
+    @Description("Обновление name пользователя без авторизации")
+    public void testUpdateUserNameWithoutAuth() {
+        // Отправляем запрос без токена авторизации
+        Response updateResponse = given()
+                .contentType(ContentType.JSON)
+                .body(gson.toJson(new UserModel(null, null, "New Name"))) // Сериализация через UserModel
+                .when()
+                .patch(Constants.AUTH_USER_ENDPOINT);
+
+        System.out.println("Ответ сервера: " + updateResponse.asString());
+
+        // Проверяем статус и сообщение об ошибке
+        updateResponse.then().statusCode(401);
+        assertEquals("You should be authorised", updateResponse.jsonPath().getString("message"));
     }
 
     @After

@@ -3,26 +3,30 @@ import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 import java.util.List;
 
 public class UserOrdersTests extends Base {
 
     private final Faker faker = new Faker();
+    private String accessToken;
 
     @Before
     public void setUp() {
         // Генерация уникальных данных для пользователя
-        String email = faker.internet().emailAddress();
-        String password = faker.internet().password(8, 16, true, true, true);
-        String name = faker.name().firstName();
+        UserModel user = new UserModel(
+                faker.internet().emailAddress(),
+                faker.internet().password(8, 16, true, true, true),
+                faker.name().firstName()
+        );
 
         // Регистрация пользователя
-        Response registerResponse = UserSteps.registerUser(email, password, name);
+        Response registerResponse = UserSteps.registerUser(user);
         registerResponse.then().statusCode(200);
 
         // Логин пользователя и получение токена
-        Response loginResponse = UserSteps.loginUser(email, password);
+        Response loginResponse = UserSteps.loginUser(user);
         loginResponse.then().statusCode(200);
         accessToken = loginResponse.jsonPath().getString("accessToken");
     }

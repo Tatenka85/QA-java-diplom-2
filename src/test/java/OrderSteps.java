@@ -4,7 +4,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import java.util.List;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
@@ -25,13 +24,11 @@ public class OrderSteps {
 
     @Step("Создание заказа с ингредиентами")
     public static Response createOrder(String accessToken, List<String> ingredientIds) {
-        Map<String, Object> requestBody = Map.of("ingredients", ingredientIds);
-        String jsonBody = gson.toJson(requestBody);
-
+        OrderModel order = new OrderModel(ingredientIds); // Используем OrderModel
         return given()
                 .contentType(ContentType.JSON)
                 .header("Authorization", accessToken)
-                .body(jsonBody)
+                .body(gson.toJson(order)) // Сериализация через Gson
                 .when()
                 .post(Constants.ORDERS_ENDPOINT);
     }

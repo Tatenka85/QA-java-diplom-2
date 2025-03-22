@@ -4,28 +4,27 @@ import org.junit.After;
 import org.junit.Before;
 
 public class Base {
-    protected static String email;
-    protected static String password;
-    protected static String name;
-
     protected static String accessToken; // Токен для авторизации
     protected static String refreshToken;
+    protected static UserModel user; // Объект пользователя
 
     private static final Faker faker = new Faker();
 
     @Before
     public void setup() {
-        // Генерация случайных данных
-        email = faker.internet().emailAddress();
-        password = faker.internet().password(8, 16, true, true, true);
-        name = faker.name().firstName();
+        // Генерация случайных данных для пользователя
+        user = new UserModel(
+                faker.internet().emailAddress(),
+                faker.internet().password(8, 16, true, true, true),
+                faker.name().firstName()
+        );
 
         // Регистрация пользователя
-        Response registerResponse = UserSteps.registerUser(email, password, name);
+        Response registerResponse = UserSteps.registerUser(user);
         registerResponse.then().statusCode(200);
 
         // Логин пользователя и получение токенов
-        Response loginResponse = UserSteps.loginUser(email, password);
+        Response loginResponse = UserSteps.loginUser(user);
         loginResponse.then().statusCode(200);
         accessToken = loginResponse.jsonPath().getString("accessToken");
         refreshToken = loginResponse.jsonPath().getString("refreshToken");

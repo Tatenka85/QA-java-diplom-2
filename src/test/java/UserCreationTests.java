@@ -11,24 +11,24 @@ public class UserCreationTests extends Base {
     private final Faker faker = new Faker();
     private String accessToken;
     private String refreshToken;
-    private String email;
-    private String password;
-    private String name;
+    private UserModel user;
 
     @Before
     public void setUp() {
         // Генерация уникальных данных для пользователя
-        email = faker.internet().emailAddress();
-        password = faker.internet().password(8, 16, true, true, true);
-        name = faker.name().firstName();
+        user = new UserModel(
+                faker.internet().emailAddress(),
+                faker.internet().password(8, 16, true, true, true),
+                faker.name().firstName()
+        );
 
         // Регистрация пользователя
-        Response registerResponse = UserSteps.registerUser(email, password, name);
+        Response registerResponse = UserSteps.registerUser(user);
         registerResponse.then().statusCode(200);
         System.out.println("Регистрация пользователя: " + registerResponse.asString());
 
         // Авторизация пользователя
-        Response loginResponse = UserSteps.loginUser(email, password);
+        Response loginResponse = UserSteps.loginUser(user);
         loginResponse.then().statusCode(200);
         System.out.println("Авторизация пользователя: " + loginResponse.asString());
 
@@ -43,11 +43,13 @@ public class UserCreationTests extends Base {
     @Test
     @Description("Создание уникального пользователя")
     public void testCreateUniqueUser() {
-        String newEmail = faker.internet().emailAddress();
-        String newPassword = faker.internet().password(8, 16, true, true, true);
-        String newName = faker.name().firstName();
+        UserModel newUser = new UserModel(
+                faker.internet().emailAddress(),
+                faker.internet().password(8, 16, true, true, true),
+                faker.name().firstName()
+        );
 
-        Response response = UserSteps.registerUser(newEmail, newPassword, newName);
+        Response response = UserSteps.registerUser(newUser);
         System.out.println("Ответ сервера: " + response.asString());
         response.then().statusCode(200);
         assertTrue(response.jsonPath().getBoolean("success"));
@@ -56,7 +58,7 @@ public class UserCreationTests extends Base {
     @Test
     @Description("Создание пользователя, который уже зарегистрирован")
     public void testCreateDuplicateUser() {
-        Response response = UserSteps.registerUser(email, password, name);
+        Response response = UserSteps.registerUser(user);
         System.out.println("Ответ сервера: " + response.asString());
         response.then().statusCode(403);
         assertEquals("User already exists", response.jsonPath().getString("message"));
@@ -65,7 +67,8 @@ public class UserCreationTests extends Base {
     @Test
     @Description("Создание пользователя без email")
     public void testCreateUserWithoutEmail() {
-        Response response = UserSteps.registerUser("", password, name);
+        UserModel invalidUser = new UserModel("", user.getPassword(), user.getName());
+        Response response = UserSteps.registerUser(invalidUser); // Используем UserSteps
         System.out.println("Ответ сервера: " + response.asString());
         response.then().statusCode(403);
         assertEquals("Email, password and name are required fields", response.jsonPath().getString("message"));
@@ -74,7 +77,8 @@ public class UserCreationTests extends Base {
     @Test
     @Description("Создание пользователя без пароля")
     public void testCreateUserWithoutPassword() {
-        Response response = UserSteps.registerUser(email, "", name);
+        UserModel invalidUser = new UserModel(user.getEmail(), "", user.getName());
+        Response response = UserSteps.registerUser(invalidUser);
         System.out.println("Ответ сервера: " + response.asString());
         response.then().statusCode(403);
         assertEquals("Email, password and name are required fields", response.jsonPath().getString("message"));
@@ -83,7 +87,8 @@ public class UserCreationTests extends Base {
     @Test
     @Description("Создание пользователя без имени")
     public void testCreateUserWithoutName() {
-        Response response = UserSteps.registerUser(email, password, "");
+        UserModel invalidUser = new UserModel(user.getEmail(), user.getPassword(), "");
+        Response response = UserSteps.registerUser(invalidUser);
         System.out.println("Ответ сервера: " + response.asString());
         response.then().statusCode(403);
         assertEquals("Email, password and name are required fields", response.jsonPath().getString("message"));
